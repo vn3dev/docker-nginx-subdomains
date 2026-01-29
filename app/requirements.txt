@@ -1,0 +1,9 @@
+# arquivo com os pacotes que vamos usar
+# vai ser executado na dockerfile quando buildar a imagem
+# versões fixas e confiaveis para evitar bugs no futuro
+
+# framework web
+flask==3.0.3
+
+# WSGI de prod
+gunicorn==22.0.0
