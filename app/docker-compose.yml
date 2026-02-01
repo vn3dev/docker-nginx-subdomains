@@ -1,16 +1,17 @@
-services:
-  app:
-    build: .
-    container_name: hello-app
-    expose:
+# service é um container lógico, pode virar 1 ou mais containers
+services: # define o backend e o reverse proxy na porta 80 e coloca os 2 na mesma rede
+  app: # hostname DNS que usamos no nginx.conf para o roteamento
+    build: . # endereço do Dockerfile
+    container_name: hello-app # nome qualquer 
+    expose: # porta que apenas os containers e o nginx vão se comunicar
       - "8000"
 
-  nginx:
-    image: nginx:alpine
-    container_name: hello-nginx
-    ports:
-      - "8080:80"
-    volumes:
+  nginx: # reverse proxy http
+    image: nginx:alpine # feita a partir de uma imagem pronta. Alpine pois eh bem leve
+    container_name: hello-nginx # nome qualquer so p/ visualização
+    ports: # mapeamento das portas
+      - "8080:80" # porta_host : porta_container (localhost:8080 - nginx:80)
+    volumes: # conecta o arquivo de config do Nginx no host ao Nginx em execução no container
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-    depends_on:
+    depends_on: # diz para o serviço só ser executado depois q o serviço "app" tiver sido, evita problemas na ordem de start
       - app
