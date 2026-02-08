@@ -17,8 +17,8 @@ Tudo isso rodando em containers **Docker** de forma isolada.
 
 ```bash
 docker compose ps
-![docker compose ps](img/compose-ps.png)
 ```
+![docker compose ps](img/compose-ps.png)
 ![client testing](img/client-testing.gif)
 
 # EN-US
@@ -40,7 +40,7 @@ All of this runs in isolated **Docker** containers.
 
 ```bash
 docker compose ps
-![docker compose ps](img/compose-ps.png)
 ```
+![docker compose ps](img/compose-ps.png)
 ![client testing](img/client-testing.gif)
 
